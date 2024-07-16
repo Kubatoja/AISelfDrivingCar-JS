@@ -3,7 +3,7 @@ class Sensor {
     this.car = car;
     this.rayCount = 5;
     this.rayLength = 150;
-    this.raySpread = Math.PI / 3;
+    this.raySpread = Math.PI / 2;
 
     this.rays = [];
     this.readings = [];
@@ -84,7 +84,7 @@ class Sensor {
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.lineWidth = 0.2;
+      ctx.lineWidth = 1;
       ctx.strokeStyle = "black";
       ctx.moveTo(this.rays[i][1].x, this.rays[i][1].y);
       ctx.lineTo(end.x, end.y);

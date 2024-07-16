@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <canvas id="canvas"></canvas>
+    <div id="verticalButtons">
+      <div class="save button" onclick="save()"></div>
+      <div class="discard button" onclick="discard()"></div>
+    </div>
+    <canvas id="carCanvas"></canvas>
+
+    <canvas id="networkCanvas"></canvas>
+    <script src="visualizer.js"></script>
+    <script src="network.js"></script>
     <script src="utils.js"></script>
     <script src="sensor.js"></script>
     <script src="road.js"></script>
