@@ -47,3 +47,21 @@ body {
   background-size: 70% 70%;
   background-image: url(https://cdn-icons-png.flaticon.com/512/6861/6861362.png);
 }
+
+#time {
+  z-index: 1;
+
+  position: absolute;
+  left: 5vw;
+  top: 1vh;
+  background-color: black;
+  width: 10vw;
+
+  font-size: 5vh;
+  color: white;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

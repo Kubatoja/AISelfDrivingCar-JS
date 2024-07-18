@@ -12,18 +12,21 @@ class Car {
     this.angle = 0;
     this.damaged = false;
     this.controlType = controlType;
-
     this.useBrain = controlType == "AI";
+
+    this.distance = 0;
+    this.distanceCount = 0;
 
     if (controlType != "DUMMY") {
       this.sensor = new Sensor(this);
-      this.brain = new NeuralNetwork([this.sensor.rayCount, 6, 4]);
+      this.brain = new NeuralNetwork([this.sensor.rayCount, 6, 6, 4]);
     }
 
     this.controls = new Controls(controlType);
 
     this.carImagesLoad();
   }
+
   carImagesLoad() {
     this.imgPlayer = new Image();
     this.imgDUMMY = new Image();
@@ -44,14 +47,20 @@ class Car {
       }),
     ]).then(() => {
       this.imgLoaded = true;
-      console.log("Images loaded");
     });
   }
+  countDistance() {
+    this.distanceCount += this.speed;
+    this.distance = this.distanceCount - seconds;
+  }
+
   update(roadBorders, traffic) {
     if (!this.damaged) {
       this.#move();
       this.polygon = this.#createPolygon();
       this.damaged = this.#assessDamage(roadBorders, traffic);
+    } else {
+      this.speed = 1;
     }
     if (this.sensor) {
       this.sensor.update(roadBorders, traffic);
